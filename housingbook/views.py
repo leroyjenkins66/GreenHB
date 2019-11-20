@@ -1,11 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
 
 from .models import Apartment, Consumption
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Welcome to #TeamSAS's green digital housing book!")
+    return render(request, 'housingbook/index.html')
     
 def detail(request, apartment_id):
     apartment = get_object_or_404(Apartment, pk=apartment_id)
