@@ -1,0 +1,17 @@
+{% extends 'housingbook/base.html' %}
+{% block title %}Apartments{% endblock %}
+
+{% block content %}
+
+    These are the apartments you are entitled to access:
+
+    {% if apt_list %}
+        <ul>
+        {% for apt in apt_list %}
+            <li><a href="{% url 'detail' apt.id %}">Apartment {{ apt.code }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No apartments available.</p>
+    {% endif %}
+{% endblock %}
