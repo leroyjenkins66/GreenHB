@@ -23,6 +23,7 @@ class Apartment(models.Model):
     code = models.CharField(max_length=200)
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE)
     tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE)
+    address = models.CharField(max_length=200)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     
     def __str__(self):
