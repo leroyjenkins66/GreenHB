@@ -1,0 +1,11 @@
+Apartment: {{ apartment.code }}
+
+{% if latest_consumption_list %}
+    <ul>
+    {% for consumption in latest_consumption_list %}
+        <li>{{ consumption.reading_date }}: {{ consumption.reading_value }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No consumption data available.</p>
+{% endif %}

@@ -30,4 +30,6 @@ class Consumption(models.Model):
     apartment = models.ForeignKey(Apartment, on_delete=models.CASCADE)
     reading_date = models.DateTimeField('Reading Date')
     reading_value = models.IntegerField(default=0)
-
+    
+    def __str__(self):
+        return str(self.apartment) + ": " + str(self.reading_value) + " on " + self.reading_date.strftime("%d.%m.%Y") #%H %M %S
