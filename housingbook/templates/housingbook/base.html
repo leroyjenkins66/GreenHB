@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'housingbook/style.css' %}">
+    <title>{% block title %}GreenHB{% endblock %}</title>
+</head>
+
+<body>
+    <div id="header">
+        <img src="{% static 'housingbook/images/logo.png' %}" />
+    </div>
+    <div id="navigation">
+        {% block navigation %}
+        <ul>
+            <li><a href="{% url 'index' %}">Start</a></li>
+            <li><a href="{% url 'detail' 4 %}">Detail for apt 4</a></li>
+        </ul>
+        <li>
+            {% if user.is_authenticated %}
+                <a href="/accounts/logout/">Logout</a>
+            {% else %}
+                <a href="/accounts/login/">Login</a>
+            {% endif %}
+         </li>
+        {% endblock %}
+    </div>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+    <div id="footer">
+        <a href="/privacy">Privacy</a>
+    </div>
+</body>
+</html>
