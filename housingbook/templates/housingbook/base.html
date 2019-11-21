@@ -15,6 +15,10 @@
         <ul>
             <li><a href="{% url 'index' %}">Start</a></li>
             <li><a href="{% url 'my_apartment' %}">My apartment</a></li>
+            {% if user.is_staff %}
+                <li><a href="{% url 'op_overview' %}">Operator overview</a></li>
+                <li><a href="/admin">Administration</a></li>
+            {% endif %}
         </ul>
         <li>
             {% if user.is_authenticated %}

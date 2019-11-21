@@ -1,0 +1,21 @@
+{% extends 'housingbook/base.html' %}
+{% block title %}Operator overview{% endblock %}
+
+{% block content %}
+    The following apartments and consumptions are known to GreenHB:
+
+    {% if apartment_list %}
+        <ul>
+        {% for apartment in apartment_list %}
+            <li>Apartment: {{ apartment.code }}</li>
+            <ul>
+            {% for consumption in apartment.consumption_set.all %}
+                <li>{{ consumption.reading_date }}: {{ consumption.reading_value }}</li>
+            {% endfor %}
+            </ul>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No apartment data available.</p>
+    {% endif %}
+{% endblock %}

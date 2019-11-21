@@ -6,7 +6,7 @@
 
     {% if latest_consumption_list %}
         <ul>
-        {% for consumption in latest_consumption_list %}
+        {% for consumption in apartment.consumption_set.all %}
             <li>{{ consumption.reading_date }}: {{ consumption.reading_value }}</li>
         {% endfor %}
         </ul>
